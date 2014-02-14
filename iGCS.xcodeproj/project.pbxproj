@@ -118,6 +118,8 @@
 		1842F8D31892D2F80050F680 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1842F8C81892D2F80050F680 /* Icon-80.png */; };
 		1842F8D41892D2F80050F680 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1842F8C91892D2F80050F680 /* Icon-100.png */; };
 		1842F8D51892D2F80050F680 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1842F8C91892D2F80050F680 /* Icon-100.png */; };
+		1844392818ADEAE100FEBD0B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1844392718ADEAE100FEBD0B /* Settings.bundle */; };
+		1844392918ADEAE100FEBD0B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1844392718ADEAE100FEBD0B /* Settings.bundle */; };
 		1875978D189108980012DF6D /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18759789189108980012DF6D /* Icon-152.png */; };
 		1875978E189108980012DF6D /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 18759789189108980012DF6D /* Icon-152.png */; };
 		1875978F189108980012DF6D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 1875978A189108980012DF6D /* Icon-76.png */; };
@@ -315,6 +317,7 @@
 		1842F8C71892D2F80050F680 /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = "<group>"; };
 		1842F8C81892D2F80050F680 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		1842F8C91892D2F80050F680 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
+		1844392718ADEAE100FEBD0B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		18759789189108980012DF6D /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		1875978A189108980012DF6D /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		1875979118910AC50012DF6D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -1784,6 +1787,7 @@
 		CA499F5314DE33BC00FCC9FB = {
 			isa = PBXGroup;
 			children = (
+				1844392718ADEAE100FEBD0B /* Settings.bundle */,
 				18C011B318939407005B67E5 /* CorePlot-CocoaTouch.xcodeproj */,
 				1888DE7B170F954B00ADA039 /* kxmovie.xcodeproj */,
 				189E231F1710CFB200548C88 /* submodules */,
@@ -2056,6 +2060,7 @@
 			files = (
 				182FFAEC181F0C9100A8C31C /* 05-shuffle.png in Resources */,
 				182FFAED181F0C9100A8C31C /* 07-map-marker.png in Resources */,
+				1844392918ADEAE100FEBD0B /* Settings.bundle in Resources */,
 				182FFAEE181F0C9100A8C31C /* 13-target.png in Resources */,
 				182FFAEF181F0C9100A8C31C /* 73-radar.png in Resources */,
 				182FFAF0181F0C9100A8C31C /* 111-user.png in Resources */,
@@ -2088,6 +2093,7 @@
 			files = (
 				CA43E09615143E940014F7C8 /* 05-shuffle.png in Resources */,
 				CAE08DE51515BAE1007E50DD /* 07-map-marker.png in Resources */,
+				1844392818ADEAE100FEBD0B /* Settings.bundle in Resources */,
 				CAE20224152EA67A00D659E2 /* 13-target.png in Resources */,
 				CA43E09715143E940014F7C8 /* 73-radar.png in Resources */,
 				CACDAAB61802718A00B5A62A /* 111-user.png in Resources */,

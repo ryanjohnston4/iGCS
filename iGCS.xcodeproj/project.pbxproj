@@ -299,6 +299,8 @@
 		49C45CB4170A7832007C9999 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C45CB3170A7832007C9999 /* libxml2.2.dylib */; };
 		49C45CB9170A7EA4007C9999 /* DebugLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C45CB8170A7EA4007C9999 /* DebugLogger.m */; };
 		49DD940316D9A5C7000DE266 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DD940216D9A5C7000DE266 /* Security.framework */; };
+		CA0870EF18BDE806005A3A2F /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0870EC18BDE806005A3A2F /* PXAlertView.m */; };
+		CA0870F018BDE806005A3A2F /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0870EE18BDE806005A3A2F /* PXAlertView+Customization.m */; };
 		CA0B69AC189B69F50014C1E4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0B69AB189B69F50014C1E4 /* SWRevealViewController.m */; };
 		CA0B69B7189B787E0014C1E4 /* GCSSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0B69B6189B787E0014C1E4 /* GCSSidebarController.m */; };
 		CA10E131188FCD42002DF0E4 /* GCSThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10E130188FCD42002DF0E4 /* GCSThemeManager.m */; };
@@ -722,6 +724,10 @@
 		49C45CB7170A7EA4007C9999 /* DebugLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLogger.h; sourceTree = "<group>"; };
 		49C45CB8170A7EA4007C9999 /* DebugLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLogger.m; sourceTree = "<group>"; };
 		49DD940216D9A5C7000DE266 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CA0870EB18BDE806005A3A2F /* PXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAlertView.h; path = PXAlertView/PXAlertView.h; sourceTree = "<group>"; };
+		CA0870EC18BDE806005A3A2F /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXAlertView.m; path = PXAlertView/PXAlertView.m; sourceTree = "<group>"; };
+		CA0870ED18BDE806005A3A2F /* PXAlertView+Customization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXAlertView+Customization.h"; path = "PXAlertView/PXAlertView+Customization.h"; sourceTree = "<group>"; };
+		CA0870EE18BDE806005A3A2F /* PXAlertView+Customization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXAlertView+Customization.m"; path = "PXAlertView/PXAlertView+Customization.m"; sourceTree = "<group>"; };
 		CA0B69AA189B69F50014C1E4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CA0B69AB189B69F50014C1E4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CA0B69B5189B787E0014C1E4 /* GCSSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSSidebarController.h; sourceTree = "<group>"; };
@@ -1656,6 +1662,17 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		CA0870F518BDE806005A3A2F /* PXAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				CA0870EB18BDE806005A3A2F /* PXAlertView.h */,
+				CA0870EC18BDE806005A3A2F /* PXAlertView.m */,
+				CA0870ED18BDE806005A3A2F /* PXAlertView+Customization.h */,
+				CA0870EE18BDE806005A3A2F /* PXAlertView+Customization.m */,
+			);
+			name = PXAlertView;
+			sourceTree = "<group>";
+		};
 		CA0B69A9189B69F50014C1E4 /* SWReveal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1935,8 +1952,9 @@
 				18C011B318939407005B67E5 /* CorePlot-CocoaTouch.xcodeproj */,
 				1888DE7B170F954B00ADA039 /* kxmovie.xcodeproj */,
 				189E231F1710CFB200548C88 /* submodules */,
-				CA20FD24164E4754005187A8 /* mavlink-include */,
 				CA43DE0815143E570014F7C8 /* glyphish-icons */,
+				CA20FD24164E4754005187A8 /* mavlink-include */,
+				CA0870F518BDE806005A3A2F /* PXAlertView */,
 				CA43DFC315143E570014F7C8 /* Redpark Serial SDK */,
 				CA0B69A9189B69F50014C1E4 /* SWReveal */,
 				CA499F6814DE33BC00FCC9FB /* iGCS */,
@@ -2476,6 +2494,7 @@
 				496E628F16DAFB8B00E52E4A /* CommsViewController.m in Sources */,
 				496E629116DAFB8B00E52E4A /* GCSMapViewController.m in Sources */,
 				18069FD21836F7C70068E7A5 /* iGCSMavLinkInterface.m in Sources */,
+				CA0870F018BDE806005A3A2F /* PXAlertView+Customization.m in Sources */,
 				18F8040417E24BB300CB8052 /* CommConnectionPool.m in Sources */,
 				496E629316DAFB8B00E52E4A /* MainViewController.m in Sources */,
 				496E629516DAFB8B00E52E4A /* WaypointsViewController.m in Sources */,
@@ -2499,6 +2518,7 @@
 				CAFBD047180A83E000F5BCDB /* TxMissionItem.m in Sources */,
 				CA0B69B7189B787E0014C1E4 /* GCSSidebarController.m in Sources */,
 				49C1FA1716DC7B5200BAE96B /* ExceptionHandler.m in Sources */,
+				CA0870EF18BDE806005A3A2F /* PXAlertView.m in Sources */,
 				18A777F217CE9E910014451B /* FileUtils.m in Sources */,
 				CA92514616F9761A0008E92F /* WaypointMapBaseController.m in Sources */,
 				CAFBD038180A67C000F5BCDB /* SetWPRequest.m in Sources */,

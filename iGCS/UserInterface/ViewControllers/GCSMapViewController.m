@@ -19,7 +19,7 @@
 #import "CommController.h"
 #import "AppDelegate.h"
 
-#import "PXAlertView.h"
+#import "PXAlertView+Customization.h"
 #import <objc/runtime.h>
 
 #import "DebugLogger.h"
@@ -399,13 +399,6 @@ static const int AIRPLANE_ICON_SIZE = 48;
     }
 }
 
-- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Confirm"]) {
-        // Let's go!
-        [self issueGuidedCommand:gotoCoordinates withAltitude:gotoAltitude withFollowing:NO];
-    }
-}
-
 + (NSString*) formatGotoAlertMessage:(CLLocationCoordinate2D)coord withAlt:(float)alt {
     return [NSString stringWithFormat:@"%@, %@\nAlt: %0.1fm\n(pan up/down to change)",
             [MiscUtilities prettyPrintCoordAxis:coord.latitude  as:GCSLatitude],
@@ -424,14 +417,15 @@ static const int AIRPLANE_ICON_SIZE = 48;
     // Confirm acceptance of GOTO point
     PXAlertView *alertView = [PXAlertView showAlertWithTitle:@"Fly-to position?"
                                                      message:[GCSMapViewController formatGotoAlertMessage: gotoCoordinates withAlt:gotoAltitude]
-                                                 cancelTitle:@"Cancel"
-                                                  otherTitle:@"Confirm"
+                                                 cancelTitle:@"Confirm" // parameter name is confusing, however confirmation on the left is in accordance with Apple's HIG for an action of this nature
+                                                  otherTitle:@"Cancel"
                                                  contentView:nil
-                                                  completion:^(BOOL cancelled, NSInteger buttonIndex) {
-                                                      if (!cancelled) {
+                                                  completion:^(BOOL confirmed, NSInteger buttonIndex) {
+                                                      if (confirmed) {
                                                           [self issueGuidedCommand:gotoCoordinates withAltitude:gotoAltitude withFollowing:NO];
                                                       }}];
     
+    // Allow panning of the alertview to modify the requested GOTO altitude
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handlePanGesture:)];
     panGesture.minimumNumberOfTouches = 1;

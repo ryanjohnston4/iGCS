@@ -100,7 +100,7 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
         [self.view addSubview:_backgroundView];
 
         _alertView = [[UIView alloc] init];
-        _alertView.backgroundColor = [UIColor colorWithWhite:0.25 alpha:1];
+        _alertView.backgroundColor = [UIColor whiteColor];
         _alertView.layer.cornerRadius = 8.0;
         _alertView.layer.opacity = .95;
         _alertView.clipsToBounds = YES;
@@ -113,9 +113,9 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
                                                                 44)];
         _titleLabel.text = title;
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
         _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _titleLabel.numberOfLines = 0;
         _titleLabel.frame = [self adjustLabelFrameHeight:self.titleLabel];
@@ -142,9 +142,9 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
                                                                   44)];
         _messageLabel.text = message;
         _messageLabel.backgroundColor = [UIColor clearColor];
-        _messageLabel.textColor = [UIColor whiteColor];
+        _messageLabel.textColor = [UIColor blackColor];
         _messageLabel.textAlignment = NSTextAlignmentCenter;
-        _messageLabel.font = [UIFont systemFontOfSize:15];
+        _messageLabel.font = [UIFont systemFontOfSize:14.0];
         _messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _messageLabel.numberOfLines = 0;
         _messageLabel.frame = [self adjustLabelFrameHeight:self.messageLabel];
@@ -233,8 +233,8 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.backgroundColor = [UIColor clearColor];
     button.titleLabel.font = [UIFont systemFontOfSize:17];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor colorWithWhite:0.25 alpha:1] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor colorWithRed:0.0f green:0.5f blue:1.0f alpha:1.0f] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithRed:0.0f green:0.5f blue:1.0f alpha:1.0f] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
     [button addTarget:self action:@selector(setBackgroundColorForButton:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(clearBackgroundColorForButton:) forControlEvents:UIControlEventTouchDragExit|UIControlEventTouchUpOutside|UIControlEventTouchCancel];
@@ -286,7 +286,7 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
 
 - (void)setBackgroundColorForButton:(id)sender
 {
-    [sender setBackgroundColor:[UIColor colorWithRed:94/255.0 green:196/255.0 blue:221/255.0 alpha:1.0]];
+    [sender setBackgroundColor:[[sender backgroundColor] colorWithAlphaComponent:0.1]];
 }
 
 - (void)clearBackgroundColorForButton:(id)sender

@@ -78,4 +78,9 @@ typedef void(^PXAlertViewCompletionBlock)(BOOL cancelled, NSInteger buttonIndex)
  */
 - (void)setTapToDismissEnabled:(BOOL)enabled;
 
+/**
+ * Modify the message label text
+ */
+- (void) setMessage:(NSString*)msg;
+
 @end

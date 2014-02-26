@@ -19,6 +19,9 @@
 #import "CommController.h"
 #import "AppDelegate.h"
 
+#import "PXAlertView.h"
+#import <objc/runtime.h>
+
 #import "DebugLogger.h"
 
 @implementation GCSMapViewController
@@ -419,21 +422,22 @@ static const int AIRPLANE_ICON_SIZE = 48;
     gotoCoordinates = [map convertPoint:[sender locationInView:map] toCoordinateFromView:map];
     
     // Confirm acceptance of GOTO point
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Fly-to position?"
-                                                      message:[GCSMapViewController formatGotoAlertMessage: gotoCoordinates withAlt:gotoAltitude]
-                                                     delegate:self
-                                            cancelButtonTitle:nil
-                                            otherButtonTitles:@"Confirm", @"Cancel", nil];
+    PXAlertView *alertView = [PXAlertView showAlertWithTitle:@"Fly-to position?"
+                                                     message:[GCSMapViewController formatGotoAlertMessage: gotoCoordinates withAlt:gotoAltitude]
+                                                 cancelTitle:@"Cancel"
+                                                  otherTitle:@"Confirm"
+                                                 contentView:nil
+                                                  completion:^(BOOL cancelled, NSInteger buttonIndex) {
+                                                      if (!cancelled) {
+                                                          [self issueGuidedCommand:gotoCoordinates withAltitude:gotoAltitude withFollowing:NO];
+                                                      }}];
     
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handlePanGesture:)];
     panGesture.minimumNumberOfTouches = 1;
     panGesture.maximumNumberOfTouches = 1;
-    //[message setMultipleTouchEnabled:YES];
-    //[message setUserInteractionEnabled:YES];
-    [message addGestureRecognizer:panGesture];
-
-    [message show];
+    objc_setAssociatedObject(panGesture, "pxalertview", alertView, OBJC_ASSOCIATION_ASSIGN);
+    [alertView.view addGestureRecognizer:panGesture];
 }
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)sender {
@@ -448,8 +452,8 @@ static const int AIRPLANE_ICON_SIZE = 48;
     gotoAltitude += (lastTranslate.y-translate.y)/10;
     lastTranslate = translate;
     
-    UIAlertView *view = (UIAlertView*)(sender.view);
-    [view setMessage:[GCSMapViewController formatGotoAlertMessage: gotoCoordinates withAlt:gotoAltitude]];
+    PXAlertView *alertView = objc_getAssociatedObject(sender, "pxalertview");
+    [alertView setMessage:[GCSMapViewController formatGotoAlertMessage: gotoCoordinates withAlt:gotoAltitude]];
 }
 
 - (void) handlePacket:(mavlink_message_t*)msg {

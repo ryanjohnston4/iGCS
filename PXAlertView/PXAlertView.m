@@ -186,6 +186,10 @@ static const CGFloat AlertViewLineLayerWidth = 0.5;
     return self;
 }
 
+- (void) setMessage:(NSString*)msg {
+    _messageLabel.text = msg;
+}
+
 - (CGRect)frameForOrientation:(UIInterfaceOrientation)orientation
 {
     CGRect frame;
